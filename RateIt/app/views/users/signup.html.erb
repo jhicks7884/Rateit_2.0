@@ -1,0 +1,18 @@
+<h1>Sign_up For new Account</h1>
+
+
+<%= form_for :user, class: "new_sign_up" do |f| %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username, class: "shortInput" %> <br />
+
+  <%= f.label :email, "Email Address" %>
+  <%= f.text_field :email, class: "shortInput" %> <br />
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: "shortInput" %> <br />
+
+  <%= f.submit "Create account", class: "button createAccount" %>
+
+<% end %>
+
