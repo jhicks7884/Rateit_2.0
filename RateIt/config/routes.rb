@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #users actions
 
-
   get 'home', to: 'users#home'
 
   get 'signup', to: 'users#signup'
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   get "/users/:id", to: 'users#show'
   get '/logout', to: 'users#logout'
 
-  get "/auth/google_oauth2"
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
 
    # implement resources but get an understanding first.
@@ -24,7 +23,4 @@ Rails.application.routes.draw do
 
    #Vehicle Ratings
    resources :ratings, only: [:new, :show, :create]
-
-
-
 end
