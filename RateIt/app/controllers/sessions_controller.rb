@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to new_vehicle_path
      else
-      
       user = User.new(:email => oauth_email, :password => SecureRandom.hex, :username => @user.name)
       if user.save
        session[:user_id] = @user.id
