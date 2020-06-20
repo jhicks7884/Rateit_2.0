@@ -18,16 +18,15 @@ class UsersController < ApplicationController
     end
 
     def show
-      @users = current_user.vehicles#.select {|type| type.vehicle_type == params[:vehicle_type]}
+      @vehicles = current_user.vehicles
     end
 
     def login # route to logging user in
-       #redirect_to '/login'
+      #redirect_to '/login'
     end
 
     def logout  #signing a user out
       session.delete :user_id
-
       redirect_to "/home"
     end
 
