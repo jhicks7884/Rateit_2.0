@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#new_sign_up'
 
   get 'login', to: 'users#login'
-  post '/login', to: 'sessions#logged_in'
+  post '/login', to: 'sessions#create'
 
   get "/users/:id", to: 'users#show'
   get '/logout', to: 'users#logout'
 
-  get '/auth/:provider/callback', to: 'sessions#omniauth'
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
 
 
    # implement resources but get an understanding first.
