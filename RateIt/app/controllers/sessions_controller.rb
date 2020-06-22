@@ -11,12 +11,12 @@ class SessionsController < ApplicationController
       if @user = User.find_by(:email => oauth_email)
         #raise "existing user".inspect
        session[:user_id] = @user.id
-       redirect_to new_vehicle_path
+       redirect_to '/users/show'
       else
        user = User.new(:email => oauth_email, :password => SecureRandom.hex, :username => oauth_email)
       if user.save
        session[:user_id] = user.id
-       redirect_to new_vehicle_path
+       redirect_to '/users/show'
         #raise user.errors.full_messages.inspect
       end
      end
