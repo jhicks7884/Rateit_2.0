@@ -8,17 +8,16 @@ class SessionsController < ApplicationController
     if auth_hash = request.env["omniauth.auth"]
       # They logged into oauth
       oauth_email = request.env["omniauth.auth"]["info"]["email"]
-     if @user = User.find_by(:email => oauth_email)
-      #raise "existing user".inspect
-      session[:user_id] = @user.id
-      redirect_to new_vehicle_path
-     else
-      user = User.new(:email => oauth_email, :password => SecureRandom.hex, :username => @user.name)
-      if user.save
+      if @user = User.find_by(:email => oauth_email)
+        #raise "existing user".inspect
        session[:user_id] = @user.id
-       redirect_to vehicle_path
+       redirect_to new_vehicle_path
       else
-        raise user.errors.full_messages.inspect
+       user = User.new(:email => oauth_email, :password => SecureRandom.hex, :username => oauth_email)
+      if user.save
+       session[:user_id] = user.id
+       redirect_to new_vehicle_path
+        #raise user.errors.full_messages.inspect
       end
      end
     else
