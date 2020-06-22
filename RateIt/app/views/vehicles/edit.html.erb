@@ -1,3 +1,14 @@
 <h1>Edit A Vehicle</h1>
+  
+<%= form_tag vehicles_path do %>
+    <label>Vehicle make:</label><br>
+    <%= text_field_tag :make %><br>
+   
+    <label>Vehicle model:</label><br>
+    <%= text_area_tag :model %><br>
+   
+    <%= submit_tag "Submit Vehicle" %>
+  <% end %>
 
-<%= link_to "Logout", logout_path %>
+
+ <%= link_to "Logout", logout_path %> <%= link_to 'Back', '/users/show' %>
