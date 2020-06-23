@@ -16,13 +16,23 @@ class UsersController < ApplicationController
           redirect_to '/login'
         end
     end
+     def login # route to logging user in
+      #redirect_to '/login'
+    end
+
+    def create  #normal login with username and password
+     @user = User.find_by(username: params[:user][:username])
+     if @user.try(:authenticate, params[:user][:password])
+       session[:user_id] = @user.id
+       redirect_to '/users/:id'
+      else
+        !Logged_in
+       render '/users/show'
+      end
+    end
 
     def show
       @vehicles = current_user.vehicles
-    end
-
-    def login # route to logging user in
-      #redirect_to '/login'
     end
 
     def logout  #signing a user out
