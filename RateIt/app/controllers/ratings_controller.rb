@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
     
     def new
-      #@ratings = Rating.new
+      @ratings = Ratings.new
     end
     def index
     #  @ = .scoped
