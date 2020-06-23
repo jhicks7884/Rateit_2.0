@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
     def user   #homepage
       render "/home"
-
     end
 
     def new_sign_up  # creating users
@@ -16,9 +15,9 @@ class UsersController < ApplicationController
           redirect_to '/login'
         end
     end
-     def login # route to logging user in
+     def login  # logging user in
       #redirect_to '/login'
-    end
+     end
 
     def create  #normal login with username and password
      @user = User.find_by(username: params[:user][:username])
