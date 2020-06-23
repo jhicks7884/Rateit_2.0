@@ -25,8 +25,7 @@ class UsersController < ApplicationController
        session[:user_id] = @user.id
        redirect_to '/users/:id'
       else
-        !Logged_in
-       render '/users/show'
+       redirect_to '/login'
       end
     end
 
