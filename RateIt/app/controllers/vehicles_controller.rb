@@ -5,9 +5,8 @@ class VehiclesController < ApplicationController
    end
 
    def edit
-      
     @vehicle = Vehicle.find_by(:id => [:id])
-   
+
    end
 
    def update
