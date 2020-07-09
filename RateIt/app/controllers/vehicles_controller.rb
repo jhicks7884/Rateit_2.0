@@ -11,6 +11,9 @@ class VehiclesController < ApplicationController
 
    def update
      raise params.inspect
+     @vehicle = Vehicle.find(params[:id])
+     @vehicle.update(model: params[:vehicle][:model], make: params[:vehicle][:model])
+     redirect_to vehicle_path(@vehicle)
    end
 
    def create
@@ -29,7 +32,7 @@ class VehiclesController < ApplicationController
 
 
    def destroy
-
+      @vehicle.destroy
    end
 
 
