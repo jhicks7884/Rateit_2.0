@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/login', to: 'users#create'
   post '/login', to: 'sessions#create'
   
-  get "/users/:id", to: 'users#show'
+  get '/users/:id', to: 'users#show'
   get '/logout', to: 'users#logout'
 
   get '/auth/google_oauth2/callback', to: 'sessions#create'
