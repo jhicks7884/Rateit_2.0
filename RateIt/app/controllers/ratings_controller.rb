@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
     
     def new
-      @ratings = Ratings.new
+      @rating = Rating.new
     end
     def index
     #  @ = .scoped
@@ -12,7 +12,7 @@ class RatingsController < ApplicationController
     end
 
     def create
-      @ratings = Rating.new(rating_params)
+      @rating = Rating.new(rating_params)
       redirect_to '/ratings/new'
     end
 
