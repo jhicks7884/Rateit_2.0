@@ -5,7 +5,13 @@
   <%= submit_tag "Filter" %>
 <% end %>
 
-
-
-
-<%= link_to "Logout", logout_path %><br><%= link_to 'Back', '/users/show' %>
+<% current_user.vehicles.each do |vehicle|%><br>
+  Vehicle Type:  <%= vehicle.vehicle_type  %><br>
+ 
+   Year:   <%= vehicle.year%><br>
+   Make:   <%= vehicle.make %><br>
+   Model:  <%= vehicle.model%>
+  <%= link_to "Edit Vehicles", edit_vehicle_url(vehicle.id) %>
+  <%= link_to "Rate Vehicles", new_vehicle_rating_path(vehicle.id) %>
+ <%end%><br><br>
+ <%= link_to "Logout", logout_path %> 
