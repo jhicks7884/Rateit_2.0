@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
-          redirect_to '/users/:id'
+          redirect_to user_path(@user.id)
         else
           redirect_to '/login'
         end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
      @user = User.find_by(username: params[:user][:username])
      if @user.try(:authenticate, params[:user][:password])
        session[:user_id] = @user.id
-       redirect_to '/users/:id'
+       redirect_to user_path(@user.id)
       else
        redirect_to '/login'
       end
