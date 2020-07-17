@@ -1,12 +1,10 @@
   <h2>Select Current Vehicle to Rate</h2>
 
-  <% current_user.vehicles.select do |vehicle| %><br>
+ <%= form_for @rating do |r| %>
+  <%= r.label :vehicle_rating %>
+  <%= r.text_field :vehicle_ratings %> 
+  <%= r.submit "Submit" %>
 
-    Year: <%= vehicle.year %><br>
-    Make: <%= vehicle.make %><br>
-    Model: <%= vehicle.model %><br>
-    Style: <%= vehicle.style %><br>
-
-  <%end%><br>
+ <%end%>
 
 <%= link_to "Logout", logout_path %>
