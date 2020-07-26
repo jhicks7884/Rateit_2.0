@@ -1,11 +1,19 @@
 <h1>Edit A Vehicle</h1>
   change form to  form_for 
+
 <%= form_for vehicles_path do %>
-    <label>Vehicle make:</label><br>
+
+    <label>Vehicle Make:</label><br>
     <%= text_field_tag :make %><br>
    
-    <label>Vehicle model:</label><br>
+    <label>Vehicle Model:</label><br>
     <%= text_area_tag :model %><br>
+
+    <label>Vehicle Year:</label><br>
+    <%= text_area_tag :Year %><br>
+
+    <label>Vehicle Style:</label><br>
+    <%= text_area_tag :Style %><br>
    
     <%= submit_tag "Submit Vehicle" %>
   <% end %>
