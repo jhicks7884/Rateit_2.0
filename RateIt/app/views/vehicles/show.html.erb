@@ -1,18 +1,9 @@
-
-<div>
-  <h3>Filter Vehicles:</h3>
-  <%= form_tag("/vehicles", method: "get") do %>
-    <%= select_tag "vehicle", options_from_collection_for_select(Vehicle.all, "id","model", "make"), include_blank: true %>
-    <%= submit_tag "Filter" %>
-  <% end %>
-</div>
-
 should only show one vehicle
-<% current_user.vehicles.select do |vehicle|%><br>
- Vehicle Type:  <%= vehicle.vehicle_type  %><br>
 
-  Year:   <%= vehicle.year%><br>
-  Make:   <%= vehicle.make %><br>
-  Model:  <%= vehicle.model%>
- 
+<% current_user.vehicle do |v|%><br>
+ Vehicle Type:  <%= v.vehicle_type  %><br>
+ Vehicle Year:  <%= v.year%><br>
+ Vehicle Make:  <%= v.make %><br>
+ Vehicle Model: <%= v.model %><br>
+ Vehicle Style: <%= v.style %><br>
 <%end%><br><br><%= link_to "Logout", logout_path %> <%= link_to "Edit Vehicles", edit_vehicle_url %>
