@@ -1,1 +1,7 @@
 <h1>Viewing Your Ratings</h1> 
+
+<%= current_user.ratings do |r| %>
+    <% r.vehicle_ratings %>
+<%end%>
+
+<%= link_to "Logout", logout_path %>
