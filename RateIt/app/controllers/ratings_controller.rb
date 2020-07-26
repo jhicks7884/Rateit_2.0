@@ -12,12 +12,14 @@ class RatingsController < ApplicationController
     end
 
     def create
-      @rating = Rating.new(rating_params)
-      redirect_to '/ratings/new'
+      @rating = current_user.ratings.create(rating_params)
+      #byebug
+
+      redirect_to '/ratings'
     end
 
     def update
-    #  @ = .find(params[:id])
+    #  @rating = Rating.find(params[:id])
     end
 
     def edit
@@ -31,7 +33,7 @@ class RatingsController < ApplicationController
     private
 
     def rating_params
-      params.require(:ratings).permit(:vehicle_ratings)
+      params.require(:rating).permit(:vehicle_ratings, :user_id, :vehicle_id)
     end
 end
 
