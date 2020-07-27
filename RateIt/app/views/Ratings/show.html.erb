@@ -1,7 +1,8 @@
 <h1>Viewing Your Ratings</h1> 
 
-<%= current_user.ratings do |r| %>
-    <% r.vehicle_ratings %>
+<% current_user.ratings do |r|%>
+    <%= r.vehicle_id %>
 <%end%>
+  
 
-<%= link_to "Logout", logout_path %>
+<%= link_to "Logout", logout_path %>  <%= link_to 'Back', '/users/show' %>
