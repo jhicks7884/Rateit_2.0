@@ -5,14 +5,14 @@ class VehiclesController < ApplicationController
    end
 
    def edit
-    @vehicle = Vehicle.find_by(:id => [:id])
+    @vehicle = Vehicle.find(params[:id])
 
    end
 
    def update
-     raise params.inspect
+     #raise params.inspect
      @vehicle = Vehicle.find(params[:id])
-     @vehicle.update(model: params[:vehicle][:model], make: params[:vehicle][:model])
+     @vehicle.update(model: params[:vehicle][:model], make: params[:vehicle][:make], year: params[:vehicle][:year], style: params[:vehicle][:style])
      redirect_to vehicle_path(@vehicle)
    end
 
