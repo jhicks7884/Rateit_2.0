@@ -8,14 +8,18 @@ class RatingsController < ApplicationController
     end
 
     def show
-    #  @ = .find(params[:id])
+      @rating = current_user.ratings
     end
 
     def create
-      @rating = current_user.ratings.create(rating_params)
-      #byebug
-
-      redirect_to '/ratings'
+      if logged_in?
+       @rating = current_user.ratings.create(rating_params)
+       @rating.save!
+       
+       redirect_to '/ratings/show'
+      else
+        redirect_to '/logout'
+      end
     end
 
     def update
@@ -33,7 +37,7 @@ class RatingsController < ApplicationController
     private
 
     def rating_params
-      params.require(:rating).permit(:vehicle_ratings, :user_id, :vehicle_id)
+      params.require(:rating).permit(:vehicle_ratings, :vehicle_id)
     end
 end
 
