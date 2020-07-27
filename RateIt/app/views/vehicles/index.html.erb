@@ -10,7 +10,7 @@
   Vehicle Year:  <%= vehicle.year%><br>
   Vehicle Make:  <%= vehicle.make %><br>
   Vehicle Model: <%= vehicle.model%><br>
-  <%= link_to "Edit Vehicles", edit_vehicle_url(vehicle.id) %>
-  <%= link_to "Rate Vehicles", new_vehicle_rating_path(vehicle.id) %>
- <%end%><br><br>
- <%= link_to "Logout", logout_path %> 
+  <%= link_to "Edit Vehicle", edit_vehicle_url(vehicle.id) %>
+  <%= link_to "Rate Vehicle", new_vehicle_rating_path(vehicle.id) %>
+<%end%><br><br>
+<%= link_to "Logout", logout_path %>  <%= link_to 'Back', '/users/show' %>
