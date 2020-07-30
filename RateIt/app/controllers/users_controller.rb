@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
 
     def show
-      @vehicles = current_user.vehicles
+      @vehicle = current_user.vehicles
     end
 
     def logout  #signing a user out
