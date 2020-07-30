@@ -1,9 +1,18 @@
-should only show one vehicle
 
-<% current_user.vehicle do |v|%><br>
- Vehicle Type:  <%= v.vehicle_type  %><br>
- Vehicle Year:  <%= v.year%><br>
- Vehicle Make:  <%= v.make %><br>
- Vehicle Model: <%= v.model %><br>
- Vehicle Style: <%= v.style %><br>
-<%end%><br><br><%= link_to "Logout", logout_path %> <%= link_to "Edit Vehicles", edit_vehicle_url %>
+<div>
+
+    Vehicle Type: <%= @vehicle.vehicle_type %><br>
+    Vehicle Year: <%= @vehicle.year %><br>
+    Vehicle Make: <%= @vehicle.make %><br>
+    Vehicle Model: <%= @vehicle.model %><br>
+    Vehicle Style: <%= @vehicle.style %><br>
+
+    Vehicle Rating: <% @vehicle.ratings.each do |r| %>
+                       <%= r.vehicle_ratings %><br>
+                    <%end%>
+</div>
+
+<%= link_to "Logout", logout_path %> <%= link_to "Edit Vehicle", edit_vehicle_url %> <%= link_to 'Back', '/users/show' %>
+
+
+
