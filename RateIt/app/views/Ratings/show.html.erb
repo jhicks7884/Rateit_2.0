@@ -1,8 +1,16 @@
 <h1>Viewing Your Ratings</h1> 
 
-<% current_user.ratings do |r|%>
-    <%= r.vehicle_id %>
-<%end%>
+<% current_user.vehicles.each do  |v|%>
+ Vehicle Type:<%= v.vehicle_type %><br>
+ Vehicle year:<%= v.year %><br>
+ Vehicle Make:<%= v.make %><br>
+ Vehicle Model:<%= v.model %><br>
+ Vehcile Style:<%= v.style%><br>   
+<%end%><br>
+
+<% current_user.ratings.each do |r|%>
+ Vehicle Rating:<%= r.vehicle_ratings %>
+<%end%><br>
   
 
 <%= link_to "Logout", logout_path %>  <%= link_to 'Back', '/users/show' %>
