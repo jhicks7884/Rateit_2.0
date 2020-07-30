@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
    # implement resources but get an understanding first.
       #Vehicle action
-   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update] do
-      resources :ratings, only: [:new, :create, :index]
+   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+      resources :ratings, only: [:new, :create, :index, :destroy]
    end
 
    #Vehicle Ratings
