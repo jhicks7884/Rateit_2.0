@@ -2,9 +2,9 @@
 
   
  <%= form_for @rating do |r| %>
-  <%= r.label :vehicle_rating %>
+  <label> Vehicle Rating </label>
   <%= r.text_field :vehicle_ratings %> 
-  <%= r.hidden_field :vehicle_id, value: current_user.id %>
+  <%= r.hidden_field :vehicle_id, :value => @rating.vehicle.id %>
 
   <%= r.submit "Submit" %>
 
