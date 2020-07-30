@@ -1,21 +1,27 @@
 <h1>Edit A Vehicle</h1>
-  change form to  form_for 
+  
 
   <%= form_for @vehicle do |r| %>
-    <label>Vehicle Make:</label><br>
+    <label>Vehicle Type :</label><br>
+    <%= r.text_field :vehicle_type %><br>
+
+    <label>Vehicle Make: </label><br>
     <%= r.text_field :make %><br>
    
-    <label>Vehicle Model:</label><br>
+    <label>Vehicle Model: </label><br>
     <%= r.text_area :model %><br>
 
-    <label>Vehicle Year:</label><br>
+    <label>Vehicle Year: </label><br>
     <%= r.text_area :year %><br>
 
-    <label>Vehicle Style:</label><br>
+    <label>Vehicle Style: </label><br>
     <%= r.text_area :style %><br>
-   
+
     <%= r.submit "Submit Vehicle" %>
   <% end %>
 
+ 
 
+
+ 
  <%= link_to "Logout", logout_path %> <%= link_to 'Back', '/users/show' %>
