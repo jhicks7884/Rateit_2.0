@@ -1,2 +1,11 @@
-<h1>Rateit Index</h1>
+<h1> List of Vehicle Ratings <br>   </h1>
 
+
+<% @ratings.each do |r| %>
+
+ User: <%= r.user_id%>.Vehicle Id: <%= r.vehicle_id%>,
+ Vehicle Name:  <%= r.vehicle.make%> , Vehicle Model:   <%= r.vehicle.model %> ,  Vehicle Rating: <%= r.vehicle_ratings %><br><br>
+
+<%end%>
+
+<%= link_to "Logout", logout_path %> <%= link_to 'Back', '/users/:ids' %>
