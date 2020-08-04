@@ -30,7 +30,7 @@ class RatingsController < ApplicationController
         @rating.save
        redirect_to  '/vehicles'
       else
-        redirect_to '/logout'
+        render :new
       end
     end
 
