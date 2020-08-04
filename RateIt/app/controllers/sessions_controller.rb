@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       if user.save
        session[:user_id] = user.id
        redirect_to user_path(@user.id)
-        #raise user.errors.full_messages.inspect
+
       end
     end
   end
