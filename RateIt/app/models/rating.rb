@@ -5,4 +5,6 @@ class Rating < ApplicationRecord
 
   validates :user, uniqueness: { scope: :vehicle, message:"this vehicle has been already been rated"}
 
+  
+ 
 end
