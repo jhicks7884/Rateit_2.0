@@ -25,9 +25,8 @@ class RatingsController < ApplicationController
     end
 
     def create
-      if logged_in?
-        @rating = current_user.ratings.create(rating_params)
-        @rating.save
+       @rating = current_user.ratings.create(rating_params)
+      if @rating.save
        redirect_to  '/vehicles'
       else
         render :new
