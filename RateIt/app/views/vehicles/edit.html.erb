@@ -1,6 +1,18 @@
 <h1>Edit A Vehicle</h1>
   
 
+<% if @vehicle.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this article from being saved:</h2>
+ 
+    <ul>
+    <% @vehicle.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <%= form_for @vehicle do |r| %>
     <label>Vehicle Type :</label><br>
     <%= r.text_field :vehicle_type %><br>
