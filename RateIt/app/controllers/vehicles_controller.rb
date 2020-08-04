@@ -9,10 +9,12 @@ class VehiclesController < ApplicationController
    end
 
    def update
-     #raise params.inspect
-     @vehicle = Vehicle.find(params[:id])
-     @vehicle.update(model: params[:vehicle][:model], make: params[:vehicle][:make], year: params[:vehicle][:year], style: params[:vehicle][:style],  vehicle_type: params[:vehicle][:vehicle_type])
-     redirect_to vehicle_path(@vehicle)
+   @vehicle = Vehicle.find(params[:id])
+      if @vehicle.update(model: params[:vehicle][:model], make: params[:vehicle][:make], year: params[:vehicle][:year], style: params[:vehicle][:style],  vehicle_type: params[:vehicle][:vehicle_type])
+       redirect_to vehicle_path(@vehicle)
+      else
+        render :edit
+      end
    end
 
    def create
