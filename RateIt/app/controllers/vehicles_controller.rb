@@ -27,7 +27,7 @@ class VehiclesController < ApplicationController
    end
 
    def index
-      @vehicles = current_user.vehicles.all
+      @vehicles = Vehicle.all
    end
 
    def show
