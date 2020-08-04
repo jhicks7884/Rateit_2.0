@@ -24,5 +24,5 @@ Rails.application.routes.draw do
    end
 
    #Vehicle Ratings
-   resources :ratings, only: [:new, :show, :create]
+   resources :ratings, only: [:new, :index, :create]
 end
