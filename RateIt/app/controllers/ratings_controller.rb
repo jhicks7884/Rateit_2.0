@@ -12,7 +12,6 @@ class RatingsController < ApplicationController
     end
 
     def index
-      #@ratings = Rating
       if  params[:vehicle_id] && @vehicle = Vehicle.find_by_id(params[:vehicle_id])
        @ratings = @vehicle.ratings
       else
@@ -35,6 +34,7 @@ class RatingsController < ApplicationController
 
     def update
       @rating = Rating.find(params[:id])
+      
     end
 
     def edit
