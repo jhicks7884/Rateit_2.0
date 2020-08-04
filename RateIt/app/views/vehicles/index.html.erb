@@ -4,19 +4,23 @@
   <%= select_tag "vehicle", options_from_collection_for_select(Vehicle.all, "id","model", "make"), include_blank: true %>
   <%= submit_tag "Filter" %>
 <% end %>
+</div>
 
 <% current_user.vehicles.each do |vehicle|%><br>
-  Vehicle Type:  <%= vehicle.vehicle_type  %><br>
-  Vehicle Year:  <%= vehicle.year%><br>
+  Vehicle Type:  <%= vehicle.vehicle_type %><br>
+  Vehicle Year:  <%= vehicle.year %><br>
   Vehicle Make:  <%= vehicle.make %><br>
-  Vehicle Model: <%= vehicle.model%><br>
+  Vehicle Model: <%= vehicle.model %><br>
  
 
   <%= link_to "Edit Vehicle", edit_vehicle_url(vehicle.id) %>
   <%= button_to "Delete Vehicle", vehicle_path(vehicle.id), method: :delete %>
+  
   <%= link_to "Rate Vehicle", new_vehicle_rating_path(vehicle.id) %>
   <%= link_to "Show Vehicle", vehicle_path(vehicle.id) %>
+  
+  
 <%end%><br><br>
-<%= link_to "Logout", logout_path %> <%= link_to 'Back', '/users/show' %>
+<%= link_to "Logout", logout_path %> <%= link_to 'Back', '/users/:id' %> <%= link_to "All Ratings", '/ratings' %>
 
 
