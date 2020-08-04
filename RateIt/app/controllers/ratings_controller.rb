@@ -12,7 +12,12 @@ class RatingsController < ApplicationController
     end
 
     def index
-    #  @ = .scoped
+      #@ratings = Rating
+      if  params[:vehicle_id] && @vehicle = Vehicle.find_by_id(params[:vehicle_id])
+       @ratings = @vehicle.ratings
+      else
+        @ratings = Rating.all
+      end
     end
 
     def show
