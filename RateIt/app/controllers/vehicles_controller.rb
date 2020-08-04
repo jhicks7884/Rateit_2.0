@@ -16,13 +16,13 @@ class VehiclesController < ApplicationController
    end
 
    def create
-      if logged_in?
-         #Vehicle.find_by(vehicle_type: params[:vehicle_type])
          @vehicle = Vehicle.create(vehicle_params)
-         @vehicle.save!
+      if  @vehicle.save
+
          redirect_to '/vehicles'
       else
-         redirect_to '/logout'
+         @vehicle = Vehicle.find_by_id(params[:vehicle_id]) if params[:vehicle_id]
+         render :new
       end
    end
 
@@ -38,7 +38,7 @@ class VehiclesController < ApplicationController
    def destroy
       @vehicle = Vehicle.find(params[:id])
       @vehicle.destroy
-      redirect '/'
+      redirect_to '/vehicles'
    end
 
 
