@@ -4,6 +4,18 @@
 
 <br>Type Of Vehicle
 
+<% if @vehicle.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+    <ul>
+    <% @vehicle.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @vehicle, :url => {:action => "create"} do |f| %>
     
     <%= f.label :Car %>
